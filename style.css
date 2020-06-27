@@ -10,20 +10,3 @@ h1 {
   background: yellow;
   text-align: center;
 }
-
-#add_post_form {
-  max-width: 300px;
-  margin: 50px auto;
-  display: flex;
-  padding: 15px;
-  flex-direction: column;
-  box-shadow: 0 0 2px 1px #00000073;
-}
-
-.input-form {
-  margin-bottom: 15px;
-}
-
-.city-manager {
-  margin: 15px;
-}
