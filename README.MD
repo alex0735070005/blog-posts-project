@@ -1,5 +1,9 @@
 # BLOG POSTS PROJECT
 
+## DEPENDENCIES
+
+- Javascript ES6
+
 ## API
 
 - http://blog.api.axenov-it.com
