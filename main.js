@@ -15,10 +15,34 @@ class RequestApi {
     const url = `${this.baseUrl}?api_key=${this.apiKey}`;
     return fetch(url).then((response) => response.json());
   }
+
+  getPost(postId) {
+    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
+    return fetch(url).then((response) => response.json());
+  }
+
+  deletePost(postId) {
+    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
+    return fetch(url, {
+      method: "DELETE",
+    }).then((response) => response.json());
+  }
+
+  addPost(post) {
+    const url = `${this.baseUrl}?api_key=${this.apiKey}`;
+    return fetch(url, {
+      method: "POST",
+      body: JSON.stringify(post),
+    }).then((response) => response.json());
+  }
+
+  updatePost(post, postId) {
+    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
+    return fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(post),
+    }).then((response) => response.json());
+  }
 }
 
 const requestApi = new RequestApi(projectSettings);
-
-requestApi.getPosts().then((dataPosts) => {
-  console.log(dataPosts);
-});
