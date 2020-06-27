@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axenov it school</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Axenov it school tasks</h1>
+    <div id="container">
+      <form id="add_post_form">
+        <input class="input-form" name="title" placeholder="enter title" />
+
+        <input class="input-form" name="seo_url" placeholder="enter seo url" />
+
+        <label class="checkbox-form">
+          Publish
+          <input name="status" type="checkbox" />
+        </label>
+
+        <textarea
+          class="input-form"
+          name="short_description"
+          placeholder="enter description"
+        ></textarea>
+
+        <textarea
+          class="input-form"
+          name="full_description"
+          placeholder="enter full description"
+        ></textarea>
+
+        <button type="submit">Add post</button>
+      </form>
+
+      <button id="get_posts">Get posts</button>
+      <table id="list-posts-table">
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Seo url</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </body>
+</html>
