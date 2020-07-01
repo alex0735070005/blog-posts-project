@@ -46,3 +46,89 @@ class RequestApi {
 }
 
 const requestApi = new RequestApi(projectSettings);
+
+/**
+ * Build Post constructor
+ */
+class Post {
+  constructor(data) {
+    this.data = data;
+  }
+
+  render() {
+    const {
+      id,
+      title,
+      date_update,
+      full_description,
+      short_description,
+      seo_url,
+      status,
+    } = this.data;
+
+    return `<div class="post">
+        <h3>${title}</h3>
+        <span>${date_update.date}</span>
+        <p>${short_description}</p>
+    </div>`;
+  }
+}
+
+/**
+ * Render list posts constructor
+ */
+class PostsList {
+  /**
+   * Constructor handler
+   *
+   * @param {Array} posts
+   * @param {string} containerId
+   */
+  constructor(posts, containerId) {
+    this.posts = posts;
+    this.container = document.querySelector(`#${containerId}`);
+  }
+
+  /**
+   * Render list posts handler
+   */
+  render() {
+    const html = this.posts
+      .map((postData) => {
+        const post = new Post(postData);
+
+        return post.render();
+      })
+      .join("");
+
+    this.container.innerHTML = html;
+  }
+}
+
+/**
+ * Main blog manager
+ */
+class PostsManager {
+  constructor() {
+    this.containerId = "container";
+  }
+
+  renderPosts() {
+    // Get lists posts from API
+    requestApi.getPosts().then((data) => {
+      const { posts, result, message } = data;
+
+      if (!result) {
+        return alert(message);
+      }
+
+      const postsList = new PostsList(posts, this.containerId);
+
+      postsList.render();
+    });
+  }
+}
+
+const postsManager = new PostsManager();
+
+postsManager.renderPosts();
