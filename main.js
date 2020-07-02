@@ -53,24 +53,31 @@ const requestApi = new RequestApi(projectSettings);
 class Post {
   constructor(data) {
     this.data = data;
+
+    this.DivContainer = document.createElement("div");
+    this.H3Title = document.createElement("h3");
+    this.SpanDate = document.createElement("span");
+    this.PSDesc = document.createElement("p");
   }
 
   render() {
-    const {
-      id,
-      title,
-      date_update,
-      full_description,
-      short_description,
-      seo_url,
-      status,
-    } = this.data;
+    const { id, title, date_update, short_description } = this.data;
 
-    return `<div class="post">
-        <h3>${title}</h3>
-        <span>${date_update.date}</span>
-        <p>${short_description}</p>
-    </div>`;
+    this.DivContainer.className = "post";
+
+    this.H3Title.innerHTML = title;
+
+    this.H3Title.onclick = () => {
+      alert(title);
+    };
+
+    this.SpanDate.innerHTML = date_update.date;
+
+    this.PSDesc.innerHTML = short_description;
+
+    this.DivContainer.append(this.H3Title, this.SpanDate, this.PSDesc);
+
+    return this.DivContainer;
   }
 }
 
@@ -93,15 +100,9 @@ class PostsList {
    * Render list posts handler
    */
   render() {
-    const html = this.posts
-      .map((postData) => {
-        const post = new Post(postData);
+    const htmlPosts = this.posts.map((postData) => new Post(postData).render());
 
-        return post.render();
-      })
-      .join("");
-
-    this.container.innerHTML = html;
+    this.container.append(...htmlPosts);
   }
 }
 
