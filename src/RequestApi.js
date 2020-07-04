@@ -1,45 +1,27 @@
+import Request from "./Request";
+
 /**
  * Request blog Api class
  */
 class RequestApi {
-  constructor(settings) {
-    const { apiKey, baseUrl } = settings;
-
-    this.apiKey = apiKey;
-    this.baseUrl = baseUrl;
-  }
-
   getPosts() {
-    const url = `${this.baseUrl}?api_key=${this.apiKey}`;
-    return fetch(url).then((response) => response.json());
+    return new Request("posts").build();
   }
 
   getPost(postId) {
-    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
-    return fetch(url).then((response) => response.json());
+    return new Request(postId).build();
   }
 
   deletePost(postId) {
-    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
-    return fetch(url, {
-      method: "DELETE",
-    }).then((response) => response.json());
+    return new Request(postId).setMethod("DELETE").build();
   }
 
   addPost(post) {
-    const url = `${this.baseUrl}?api_key=${this.apiKey}`;
-    return fetch(url, {
-      method: "POST",
-      body: JSON.stringify(post),
-    }).then((response) => response.json());
+    return new Request().setMethod("POST").addBody(post).build();
   }
 
   updatePost(post, postId) {
-    const url = `${this.baseUrl}/${postId}?api_key=${this.apiKey}`;
-    return fetch(url, {
-      method: "PUT",
-      body: JSON.stringify(post),
-    }).then((response) => response.json());
+    return new Request(postId).setMethod("PUT").addBody(post).build();
   }
 }
 

@@ -1,8 +1,7 @@
 import PostsList from "./PostsList";
 import RequestApi from "./RequestApi";
-import settings from "./settings";
 
-const requestApi = new RequestApi(settings);
+const requestApi = new RequestApi();
 
 /**
  * Main blog manager
