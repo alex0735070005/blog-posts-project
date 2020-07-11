@@ -7,5 +7,22 @@
     "prettier/prettier": "error",
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off"
+  },
+
+  "ecmaFeatures": {
+    "modules": true,
+    "spread": true,
+    "restParams": true
+  },
+
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
   }
 }
