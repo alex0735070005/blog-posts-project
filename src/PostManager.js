@@ -1,5 +1,6 @@
 import PostsList from "./PostsList";
 import RequestApi from "./RequestApi";
+import PostForm from "./PostForm";
 
 const requestApi = new RequestApi();
 
@@ -9,6 +10,15 @@ const requestApi = new RequestApi();
 class PostsManager {
   constructor() {
     this.containerId = "container";
+
+    this.addPost = document.querySelector("#add-post");
+
+    this.addPost.onclick = this.showFormAddPost.bind(this);
+  }
+
+  showFormAddPost() {
+    const postForm = new PostForm();
+    postForm.show();
   }
 
   renderPosts() {
