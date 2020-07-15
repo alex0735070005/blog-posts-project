@@ -18,3 +18,67 @@ h1 {
   width: 28%;
   text-align: center;
 }
+
+.postForm {
+  position: absolute;
+  z-index: 1000;
+  background: #cccccc91;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.postForm__container {
+  max-width: 400px;
+  background: #fff;
+  padding: 30px 30px 50px 30px;
+  box-shadow: 0 0 5px 2px #000000b5;
+  margin: 25% auto;
+  position: relative;
+}
+
+.nav {
+  max-width: 600px;
+  margin: 15px auto;
+}
+.postForm__input {
+  width: 100%;
+  margin: 15px 0 5px 0;
+  display: block;
+  font-size: 18px;
+}
+
+.postForm__error {
+  color: red;
+}
+
+.nav_addPost,
+.postForm__send {
+  background: blue;
+  color: #fff;
+  box-shadow: none;
+  border: none;
+  padding: 5px 15px;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.postForm__send {
+  background: green;
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
+}
+
+span.postForm__close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+}
