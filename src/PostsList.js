@@ -1,4 +1,4 @@
-import Post from "./Post";
+import PostFactory from "./PostFactory";
 
 class PostsList {
   /**
@@ -16,8 +16,10 @@ class PostsList {
    * Render list posts handler
    */
   render() {
-    const htmlPosts = this.posts.map((postData) => new Post(postData).render());
-
+    const htmlPosts = this.posts.map((postData) =>
+      PostFactory.create("view", postData).render()
+    );
+    this.container.innerHTML = "";
     this.container.append(...htmlPosts);
   }
 }

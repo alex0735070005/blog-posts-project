@@ -32,7 +32,7 @@ h1 {
 .postForm__container {
   max-width: 400px;
   background: #fff;
-  padding: 30px;
+  padding: 30px 30px 50px 30px;
   box-shadow: 0 0 5px 2px #000000b5;
   margin: 25% auto;
   position: relative;
@@ -44,9 +44,13 @@ h1 {
 }
 .postForm__input {
   width: 100%;
-  margin-bottom: 15px;
+  margin: 15px 0 5px 0;
   display: block;
   font-size: 18px;
+}
+
+.postForm__error {
+  color: red;
 }
 
 .nav_addPost,
@@ -64,6 +68,9 @@ h1 {
 
 .postForm__send {
   background: green;
+  position: absolute;
+  right: 24px;
+  bottom: 10px;
 }
 
 span.postForm__close {

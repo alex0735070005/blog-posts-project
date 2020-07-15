@@ -1,4 +1,4 @@
-class Post {
+class PostView {
   constructor(data) {
     this.data = data;
 
@@ -29,4 +29,4 @@ class Post {
   }
 }
 
-export default Post;
+export default PostView;
