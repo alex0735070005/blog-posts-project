@@ -7,7 +7,11 @@ class PostsList {
    * @param {Array} posts
    * @param {string} containerId
    */
-  constructor(posts, containerId) {
+  constructor(params) {
+    const { posts, containerId, deletePost, showFormEditPost } = params;
+
+    this.deletePost = deletePost;
+    this.showFormEditPost = showFormEditPost;
     this.posts = posts;
     this.container = document.querySelector(`#${containerId}`);
   }
@@ -16,9 +20,17 @@ class PostsList {
    * Render list posts handler
    */
   render() {
-    const htmlPosts = this.posts.map((postData) =>
-      PostFactory.create("view", postData).render()
-    );
+    const htmlPosts = this.posts.map((postData) => {
+      const post = PostFactory.create({
+        type: "view",
+        data: postData,
+        deletePost: this.deletePost,
+        showFormEditPost: this.showFormEditPost,
+      });
+
+      return post.render();
+    });
+
     this.container.innerHTML = "";
     this.container.append(...htmlPosts);
   }

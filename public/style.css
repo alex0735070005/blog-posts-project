@@ -17,6 +17,7 @@ h1 {
   margin: 15px;
   width: 28%;
   text-align: center;
+  position: relative;
 }
 
 .postForm {
@@ -73,12 +74,20 @@ h1 {
   bottom: 10px;
 }
 
-span.postForm__close {
+.btnClose {
   position: absolute;
   right: 10px;
   top: 0px;
   font-size: 25px;
   font-weight: bold;
   color: red;
+  cursor: pointer;
+}
+
+.btnEdit {
+  position: absolute;
+  left: 5px;
+  color: green;
+  font-weight: bold;
   cursor: pointer;
 }

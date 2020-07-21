@@ -1,5 +1,9 @@
 class PostForm {
-  constructor({ onFetch }) {
+  constructor({ onFetch, btnSendText, title = "", short_description = "" }) {
+    this.title = title;
+    this.short_description = short_description;
+    this.btnSendText = btnSendText;
+
     this.formBackground = document.createElement("div");
     this.formContainer = document.createElement("div");
 
@@ -76,16 +80,18 @@ class PostForm {
     this.formContainer.className = "postForm__container";
 
     this.formSendBtn.className = "postForm__send";
-    this.formSendBtn.innerHTML = "create post";
+    this.formSendBtn.innerHTML = this.btnSendText;
 
-    this.formCloseBtn.className = "postForm__close";
+    this.formCloseBtn.className = "btnClose";
     this.formCloseBtn.innerHTML = "x";
 
     this.inputName.className = "postForm__input";
+    this.inputName.value = this.title;
     this.inputNameError.className = "postForm__error";
     this.inputName.placeholder = "Enter post name";
 
     this.inputDesctiption.className = "postForm__input";
+    this.inputDesctiption.value = this.short_description;
     this.inputDesctiptionError.className = "postForm__error";
     this.inputDesctiption.placeholder = "Enter post description";
 

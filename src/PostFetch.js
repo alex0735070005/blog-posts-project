@@ -1,5 +1,5 @@
 class PostFetch {
-  constructor(data) {
+  constructor({ data }) {
     this.title = data.title;
     this.short_description = data.short_description;
     this.full_description = "";

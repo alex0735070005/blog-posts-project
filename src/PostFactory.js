@@ -2,12 +2,12 @@ import PostFetch from "./PostFetch";
 import PostView from "./PostView";
 
 class PostFactory {
-  static create(type, data) {
-    switch (type) {
+  static create(params) {
+    switch (params.type) {
       case "fetch":
-        return new PostFetch(data);
+        return new PostFetch(params);
       case "view":
-        return new PostView(data);
+        return new PostView(params);
     }
   }
 }
